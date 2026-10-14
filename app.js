@@ -336,7 +336,7 @@ function renderList() {
     listHtml = `<div class="card"><div class="empty">
       <span class="big">🧾</span>
       ${recs.length === 0 && DB.records.length === 0 ? '还没有任何记录' : '这个月还没有记录'}<br>
-      点右下角 <b>＋</b> 记下第一笔
+      点下方 <b>＋</b> 记下第一笔
     </div></div>`;
   } else {
     for (const day of days) {
