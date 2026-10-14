@@ -13,15 +13,14 @@
 1. 在 GitHub 上新建一个仓库，名字 `money-book`，选 **Public**
    - **不要**勾选 "Add a README file"、"Add .gitignore"、"Choose a license"，
      否则远程会有本地没有的提交，第一次推送会被拒绝
-2. 把本目录推上去（把 `<你的用户名>` 换成你的 GitHub 用户名）：
+2. 推上去（远程 `origin` 已经配好了，只剩推送）：
    ```bash
    cd D:\ai\money-book
-   git remote add origin https://github.com/<你的用户名>/money-book.git
    git push -u origin main
    ```
    第一次推送会弹出登录窗口，用浏览器授权一次即可。
 3. 仓库页面 → **Settings → Pages** → Source 选 `Deploy from a branch`，Branch 选 `main` / `root` → Save
-4. 等 1 分钟，访问 `https://<你的用户名>.github.io/money-book/`
+4. 等 1 分钟，访问 `https://Sisyphus13579.github.io/money-book/`
 5. **手机上打开这个网址** → 浏览器菜单 → 「添加到主屏幕」
 
 之后桌面上就会出现一个叫「记账」的图标，点开是全屏的，和 App 一样。
