@@ -8,17 +8,18 @@
 
 ### 方式一：放到 GitHub Pages（推荐，能加到主屏幕当 App 用）
 
-1. 在 GitHub 上新建一个仓库，比如 `money-book`（**Public**）
-2. 把本目录的文件推上去：
+本地仓库已经初始化并提交好了，只差建远程仓库和推送。
+
+1. 在 GitHub 上新建一个仓库，名字 `money-book`，选 **Public**
+   - **不要**勾选 "Add a README file"、"Add .gitignore"、"Choose a license"，
+     否则远程会有本地没有的提交，第一次推送会被拒绝
+2. 把本目录推上去（把 `<你的用户名>` 换成你的 GitHub 用户名）：
    ```bash
    cd D:\ai\money-book
-   git init
-   git add .
-   git commit -m "记账"
-   git branch -M main
    git remote add origin https://github.com/<你的用户名>/money-book.git
    git push -u origin main
    ```
+   第一次推送会弹出登录窗口，用浏览器授权一次即可。
 3. 仓库页面 → **Settings → Pages** → Source 选 `Deploy from a branch`，Branch 选 `main` / `root` → Save
 4. 等 1 分钟，访问 `https://<你的用户名>.github.io/money-book/`
 5. **手机上打开这个网址** → 浏览器菜单 → 「添加到主屏幕」
@@ -26,6 +27,8 @@
 之后桌面上就会出现一个叫「记账」的图标，点开是全屏的，和 App 一样。
 
 > Android 用 Chrome、iPhone 用 Safari 添加效果最好（Safari 添加后是全屏 + 无地址栏）。
+>
+> **这一步只需要成功打开一次。** 打开后所有文件会被存进手机，之后断网、飞行模式都能正常用。
 
 ### 方式二：电脑开个小服务器，手机连同一个 WiFi 访问
 
@@ -34,11 +37,13 @@ cd D:\ai\money-book
 npx serve -l 8080        # 或者 python -m http.server 8080
 ```
 然后手机浏览器访问 `http://<电脑的局域网IP>:8080`。
-缺点：电脑不开就没法用。
+
+缺点有两个：电脑不开就用不了；而且这是 `http://`，浏览器认为不安全，**不允许注册
+service worker**，所以没有离线能力，也加不到主屏幕当 App，只能当书签用。
 
 ### 方式三：直接把文件夹拷到手机
 
-能用，但 Chrome 对 `file://` 下的本地存储限制较多，**强烈建议用方式一**。
+能打开，但 Chrome 对 `file://` 下的本地存储限制较多，且同样加不到主屏幕。**建议用方式一。**
 
 ---
 
