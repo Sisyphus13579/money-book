@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,maximum-scale=1,user-scalable=no">
+<title>记账</title>
+<meta name="theme-color" content="#f4f5f9">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="记账">
+<meta name="format-detection" content="telephone=no">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- ─── 顶栏 ─── -->
+  <header class="topbar">
+    <button class="member-btn" id="memberBtn" title="切换使用者">
+      <span class="member-emoji" id="memberEmoji">😀</span>
+      <span class="member-name" id="memberName">我</span>
+    </button>
+
+    <div class="month-nav">
+      <button class="month-arrow" id="prevMonth" aria-label="上个月">‹</button>
+      <button class="month-label" id="monthLabel">2026年10月</button>
+      <button class="month-arrow" id="nextMonth" aria-label="下个月">›</button>
+    </div>
+
+    <button class="icon-btn" id="themeBtn" title="切换主题">
+      <svg viewBox="0 0 24 24" id="themeIcon"><use href="#i-moon"/></svg>
+    </button>
+  </header>
+
+  <!-- ─── 主体 ─── -->
+  <main class="main">
+    <section class="view" id="view-list"></section>
+    <section class="view" id="view-chart"></section>
+    <section class="view" id="view-budget"></section>
+    <section class="view" id="view-me"></section>
+  </main>
+
+  <!-- ─── 底部导航（中间是「记一笔」） ─── -->
+  <nav class="tabbar" id="tabbar">
+    <button class="tab active" data-tab="list">
+      <svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+      <span>明细</span>
+    </button>
+    <button class="tab" data-tab="chart">
+      <svg viewBox="0 0 24 24"><path d="M5 20V11M12 20V4M19 20v-6"/></svg>
+      <span>图表</span>
+    </button>
+    <button class="tab-add" id="addBtn" aria-label="记一笔">
+      <i><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></i>
+      <span>记一笔</span>
+    </button>
+    <button class="tab" data-tab="budget">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.4"/></svg>
+      <span>预算</span>
+    </button>
+    <button class="tab" data-tab="me">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.6"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6"/></svg>
+      <span>我的</span>
+    </button>
+  </nav>
+
+</div>
+
+<!-- ─── 记账面板（全屏编辑器） ─── -->
+<div class="sheet" id="sheet" aria-hidden="true"></div>
+
+<!-- ─── 通用弹层 ─── -->
+<div class="modal-root" id="modalRoot" aria-hidden="true"></div>
+
+<div class="toast" id="toast"></div>
+
+<!-- 图标符号 -->
+<svg class="svg-defs" aria-hidden="true">
+  <defs>
+    <g id="i-sun"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5.4 5.4l1.5 1.5M17.1 17.1l1.5 1.5M18.6 5.4l-1.5 1.5M6.9 17.1l-1.5 1.5"/></g>
+    <g id="i-moon"><path d="M20 14.2A8.4 8.4 0 0 1 9.8 4 8.4 8.4 0 1 0 20 14.2z"/></g>
+  </defs>
+</svg>
+
+<script src="app.js"></script>
+</body>
+</html>
